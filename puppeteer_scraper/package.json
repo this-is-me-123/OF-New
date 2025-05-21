@@ -1,0 +1,12 @@
+{
+  "name": "onlyfans-puppeteer-scraper",
+  "version": "1.0.0",
+  "description": "Automated OnlyFans login using Puppeteer",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "puppeteer": "^21.3.8"
+  }
+}

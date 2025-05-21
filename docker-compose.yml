@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+
+  celery_worker:
+    build: ./backend
+    command: celery -A app.worker.tasks worker --loglevel=info
+    depends_on:
+      - redis
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+
+  redis:
+    image: redis:6-alpine
+    ports:
+      - "6379:6379"
